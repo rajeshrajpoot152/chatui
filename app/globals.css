@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  margin: 0; padding: 0px;
+}
+
+@layer utilities {
+  .fontFamilyPlusJakarta {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+ 
+ 
+.accordion-wrap .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root { min-height: 50px; }
+.accordion-wrap .css-1c35hjw-MuiPaper-root-MuiAccordion-root::before{ display: none; }
+.accordion-wrap .css-1c35hjw-MuiPaper-root-MuiAccordion-root:first-of-type{ border-radius: 0px; }
+.accordion-wrap .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root{ padding: 0px 0px; }
+.accordion-wrap .css-1c35hjw-MuiPaper-root-MuiAccordion-root{ background-color: transparent; box-shadow: none; }
+.accordion-wrap .css-15v22id-MuiAccordionDetails-root { padding:0px ; }
+.accordion-wrap .css-o4b71y-MuiAccordionSummary-content.Mui-expanded { margin: 0px 0; }
+.accordion-wrap .css-o4b71y-MuiAccordionSummary-content{ margin: 0 0; }
+ 
+ 
+}
