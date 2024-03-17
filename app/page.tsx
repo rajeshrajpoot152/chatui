@@ -38,7 +38,7 @@ export default function Home() {
         </Grid>
       </Grid>
       <Grid className="h-full min-h-[912px] flex z-0 overflow-hidden bg-white shadow-lg shadow-slate-100 border border-slate-100 rounded-xl relative">
-        <Grid className='flex-shrink-0 md:w-[362px]'>
+        <Grid className='flex-shrink-0 md:w-[362px] md:block hidden'>
           <Grid className='flex flex-col h-full border-r border-slate-100'>
             <Box className='p-7 pb-2'>
               <Grid container className='flex items-center'>
@@ -647,7 +647,7 @@ export default function Home() {
                   {/* Left end*/}
                 </Box>
               </Grid>
-              <Grid className='flex-shrink-0 md:w-[266px]'>
+              <Grid className='flex-shrink-0 md:w-[266px] md:block hidden'>
                 <Grid className='flex flex-col h-full border-l border-slate-100'>
                   <Box className='p-7 pt-4 accordion-wrap'>
                     <Accordion defaultExpanded>
