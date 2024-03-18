@@ -79,7 +79,7 @@ export default function ChatUI() {
                                                 <Badge
                                                     className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[54px] h-[54px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
                                                     {/* MS */}
-                                                    <Avatar className='!w-[54px] !h-[54px]' src="/avatar4.svg" />
+                                                    <Avatar className='!w-[54px] !h-[54px]' src="/avatar4.png" />
                                                 </Badge>
                                                 <Badge className='w-2 h-2 rounded-full bg-[#ffae1f] absolute right-0 bottom-2 z-10'> </Badge>
                                             </Grid>
@@ -133,7 +133,7 @@ export default function ChatUI() {
                                                 <Badge
                                                     className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[40px] h-[40px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
                                                     {/* MS */}
-                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.svg" />
+                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.png" />
                                                 </Badge>
                                             </Grid>
                                             <Grid className='w-full'>
@@ -178,7 +178,7 @@ export default function ChatUI() {
                                                 <Badge
                                                     className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[40px] h-[40px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
                                                     {/* MS */}
-                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.svg" />
+                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.png" />
                                                 </Badge>
                                             </Grid>
                                             <Grid className='w-full'>
@@ -226,7 +226,7 @@ export default function ChatUI() {
                                                 <Badge
                                                     className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[40px] h-[40px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
                                                     {/* MS */}
-                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.svg" />
+                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.png" />
                                                 </Badge>
                                             </Grid>
                                             <Grid className='w-full'>
@@ -251,7 +251,7 @@ export default function ChatUI() {
                                                 <Badge
                                                     className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[40px] h-[40px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
                                                     {/* MS */}
-                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.svg" />
+                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.png" />
                                                 </Badge>
                                             </Grid>
                                             <Grid className='w-full'>
@@ -296,7 +296,7 @@ export default function ChatUI() {
                                                 <Badge
                                                     className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[40px] h-[40px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
                                                     {/* MS */}
-                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.svg" />
+                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.png" />
                                                 </Badge>
                                             </Grid>
                                             <Grid className='w-full'>
@@ -344,7 +344,7 @@ export default function ChatUI() {
                                                 <Badge
                                                     className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[40px] h-[40px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
                                                     {/* MS */}
-                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.svg" />
+                                                    <Avatar className='!w-[40px] !h-[40px]' src="/avatar4.png" />
                                                 </Badge>
                                             </Grid>
                                             <Grid className='w-full'>
