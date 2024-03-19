@@ -1,0 +1,255 @@
+[
+  {
+    "id": 1,
+    "name": "James Johnson",
+    "namefirstlast": "",
+    "dotcolor": "#13DEB9",
+    "lastmsg": "You: Juce tazmawsam fe fikavo zo.",
+    "time": "15 minutes",
+    "userimg": "/avatar4.png",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Maria Hernandez",
+    "namefirstlast": "",
+    "dotcolor": "#fa896b",
+    "lastmsg": "Empepje kalobzew tulipiosa uneiw hurininoj.",
+    "time": "30 minutes",
+    "userimg": "/avatar3.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "David Smith",
+    "namefirstlast": "",
+    "dotcolor": "#ffae1f",
+    "lastmsg": "You: Puj juk giutkaf pun lobulaba.",
+    "time": "yesterday",
+    "userimg": "/avatar4.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Maria Rodriguez",
+    "namefirstlast": "MR",
+    "dotcolor": "#ff6e00",
+    "lastmsg": "Udsopew wivisu naut areh odegopuf tod asca.",
+    "time": "5 hours",
+    "userimg": "",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Robert Smith Robert SmithRobert Smith",
+    "namefirstlast": "",
+    "dotcolor": "#dd1378",
+    "lastmsg": "You: Fu puzzok baw ilielieli toozot. You",
+    "time": "yesterday",
+    "userimg": "/avatar4.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Joseph Sarah ",
+    "namefirstlast": "",
+    "dotcolor": "#1ac600",
+    "lastmsg": "You: Zeh immuw kemrela viab owgoc.",
+    "time": "2 hours",
+    "userimg": "/avatar3.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Samuel Eliza",
+    "namefirstlast": "",
+    "dotcolor": "#0067e5",
+    "lastmsg": "Vihauzo be jesme uliojsaw me.",
+    "time": "15 minutes",
+    "userimg": "/avatar5.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "James Johnson",
+    "namefirstlast": "",
+    "dotcolor": "#13DEB9",
+    "lastmsg": "You: Juce tazmawsam fe fikavo zo.",
+    "time": "15 minutes",
+    "userimg": "/avatar2.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Maria Hernandez",
+    "namefirstlast": "",
+    "dotcolor": "#fa896b",
+    "lastmsg": "Empepje kalobzew tulipiosa uneiw hurininoj.",
+    "time": "30 minutes",
+    "userimg": "/avatar3.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "David Smith",
+    "namefirstlast": "",
+    "dotcolor": "#ffae1f",
+    "lastmsg": "You: Puj juk giutkaf pun lobulaba.",
+    "time": "yesterday",
+    "userimg": "/avatar4.svg",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Rajesh Rajpoot",
+    "namefirstlast": "RR",
+    "dotcolor": "#ff6e00",
+    "lastmsg": "Udsopew wivisu naut areh odegopuf tod asca.",
+    "time": "5 hours",
+    "userimg": "",
+    "message": [
+      {
+        "type": "sender",
+        "msg": "hello"
+      },
+      {
+        "type": "receiver",
+        "msg": "hello"
+      },
+      {
+        "type": "sender",
+        "msg": "how are you"
+      }
+    ]
+  }
+]

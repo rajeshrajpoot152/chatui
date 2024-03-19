@@ -1,13 +1,25 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Grid, Typography, InputBase, IconButton, Avatar, Badge, Button, ListItemButton, ListItem, ListItemAvatar, List, } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import userData from '../recent_chats.json';
 
-const ChatLeft = () => {
+const ChatLeft = ({ onUserClick }) => {
+    const [selectedUser, setSelectedUser] = useState(null);
+    const handleUserClick = (user) => {
+        setSelectedUser(user);
+        onUserClick(user);
+    };
+    useEffect(() => {
+        const defaultUser = userData.find((user) => user.id == 1);
+        setSelectedUser(defaultUser);
+        onUserClick(defaultUser);
+    }, []);
+
     // Recent Chats
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -67,289 +79,32 @@ const ChatLeft = () => {
                 </Box>
                 <Grid className="scrollbar-thin  scrollbar-track-neutral-200  overflow-y-scroll h-[592px]" >
                     <List className='md:max-w-[362px] max-w-[280px]' sx={{ width: '100%', bgcolor: 'background.paper', '& .Mui-selected': { backgroundColor: 'rgba(0, 0, 0, 0.04)', }, }}>
-                        <ListItemButton component="a" href="#simple-list" selected>
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar2.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#13DEB9] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>James Johnson </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  15 minutes </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Juce tazmawsam fe fikavo zo.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar3.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#fa896b] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Maria Hernandez </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  30 minutes </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        Empepje kalobzew tulipiosa uneiw hurininoj.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar4.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#ffae1f] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>David Smith </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'> 2 hours </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Puj juk giutkaf pun lobulaba.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar5.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#13DEB9] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Maria Rodriguez </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  5 hours  </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        Udsopew wivisu naut areh odegopuf tod asca.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        MS
-                                        {/* <Avatar className='!w-[48px] !h-[48px]' src="/avatar5.svg" /> */}
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#13DEB9] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Robert Smith Robert SmithRobert Smith </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  5 days </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Fu puzzok baw ilielieli toozot. You: Fu puzzok baw ilielieli toozot.You: Fu puzzok baw ilielieli toozot.You: Fu puzzok baw ilielieli toozot.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar6.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#fa896b] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Joseph Sarah </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  30 minutes  </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Zeh immuw kemrela viab owgoc.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar5.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#ffae1f] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Samuel Eliza</Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  5 hours  </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Vihauzo be jesme uliojsaw me.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar2.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#13DEB9] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>James Johnson </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  15 minutes </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Juce tazmawsam fe fikavo zo.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar3.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#fa896b] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Maria Hernandez </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  30 minutes </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        Empepje kalobzew tulipiosa uneiw hurininoj.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar4.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#ffae1f] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>David Smith </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'> 2 hours </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Puj juk giutkaf pun lobulaba.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar5.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#13DEB9] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Maria Rodriguez </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  5 hours  </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        Udsopew wivisu naut areh odegopuf tod asca.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        MS
-                                        {/* <Avatar className='!w-[48px] !h-[48px]' src="/avatar5.svg" /> */}
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#13DEB9] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Robert Smith Robert SmithRobert Smith </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  5 days </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Fu puzzok baw ilielieli toozot. You: Fu puzzok baw ilielieli toozot.You: Fu puzzok baw ilielieli toozot.You: Fu puzzok baw ilielieli toozot.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar6.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#fa896b] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Joseph Sarah </Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  30 minutes  </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Zeh immuw kemrela viab owgoc.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItem className='flex items-center w-full'>
-                                <ListItemAvatar className='me-1 relative'>
-                                    <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                        {/* MS */}
-                                        <Avatar className='!w-[48px] !h-[48px]' src="/avatar5.svg" />
-                                    </Badge>
-                                    <Badge className='w-2 h-2 rounded-full bg-[#ffae1f] absolute right-2 bottom-2 z-10'> </Badge>
-                                </ListItemAvatar>
-                                <Grid className='w-[80%]'>
-                                    <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
-                                        <Grid className='flex-1 truncate'>Samuel Eliza</Grid>
-                                        <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  5 hours  </Grid>
-                                    </Box>
-                                    <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                        You: Vihauzo be jesme uliojsaw me.
-                                    </Typography>
-                                </Grid>
-                            </ListItem>
-                        </ListItemButton>
+                        {userData.map((user, index) => (
+                            <ListItemButton key={user.id} onClick={() => handleUserClick(user)} selected={index === 0}>
+                                <ListItem className='flex items-center w-full' >
+                                    <ListItemAvatar className='me-1 relative'>
+                                        <Badge className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[48px] h-[48px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
+                                            {user.namefirstlast && user.namefirstlast}
+                                            {user.userimg && (
+                                                <Avatar className='!w-[48px] !h-[48px]' src={user.userimg} />
+                                            )}
+                                        </Badge>
+                                        <Badge className='w-2 h-2 rounded-full absolute right-2 bottom-2 z-10' style={{ backgroundColor: user.dotcolor }}></Badge>
+                                    </ListItemAvatar>
+                                    <Grid className='w-[80%]'>
+                                        <Box className="text-primarydark1 fontFamilyPlusJakarta text-sm font-semibold leading-tight mb-[6px] flex items-center w-full">
+                                            <Grid className='flex-1 truncate'>{user.name}</Grid>
+                                            <Grid className='flex-shrink-0 text-primarylight2 text-xs font-normal text-end ps-2'>  {user.time} </Grid>
+                                        </Box>
+                                        <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
+                                            {user.lastmsg}
+                                        </Typography>
+                                    </Grid>
+                                </ListItem>
+                            </ListItemButton>
+                        ))}
                     </List>
                 </Grid>
-
             </Grid>
         </Grid>
     );

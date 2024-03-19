@@ -9,30 +9,63 @@ import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
 import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import Drawer from '@mui/material/Drawer';
+import ChatLeft from './chatleft';
+import ChatRight from './chatright';
 
-import ChatLeft from '../component/chatleft';
-import ChatRight from '../component/chatright';
+interface ChatMessage {
+    id: number;
+    message: {
+        type: string;
+        msg: string;
+    }[];
+}
+
+interface UserData {
+    id: number;
+    name: string;
+    lastmsg: string;
+    time: string;
+    userimg: string;
+    namefirstlast: string;
+    dotcolor: string;
+}
 
 const CustomSeparator = () => (
     <Box className="w-1 h-1 bg-primarydark2 rounded-full" />
 );
 
 export default function ChatUI() {
+    const [chatData, setChatData] = useState<ChatMessage[]>([]);
+    const [selectedUser, setSelectedUser] = useState<UserData | null>(null);
+    const handleUserClick = (user: UserData) => {
+        setSelectedUser(user);
+        const isUserInChat = chatData.some((item) => item.id === user.id);
+        if (!isUserInChat) {
+            const newChatMessage: ChatMessage = {
+                id: user.id,
+                message: [
+                    {
+                        type: "sender",
+                        msg: `Welcome ${user.name} to the chat!`
+                    }
+                ],
+            };
+            setChatData((prevData) => [newChatMessage]);
+        }
+    };
     const [state, setState] = React.useState({
         top: false,
         left: false,
         bottom: false,
         right: false,
     });
-    const toggleDrawer = (anchor, open) => () => {
+    const toggleDrawer = (anchor: 'top' | 'right' | 'bottom' | 'left', open: boolean) => () => {
         setState({ ...state, [anchor]: open });
     };
-
     const [isChatRightVisible, setIsChatRightVisible] = useState(true);
     const toggleChatRightVisibility = () => {
         setIsChatRightVisible(!isChatRightVisible);
     };
-
     return (
         <main className="md:py-16 py-6 md:px-24 px-6">
             <Grid container className="MuiGrid-container bg-primarylight1 rounded-xl p-8 relative overflow-hidden mb-6">
@@ -56,7 +89,7 @@ export default function ChatUI() {
             <Grid className="h-full min-h-[912px] flex z-0 overflow-hidden bg-white shadow-lg shadow-slate-100 border border-slate-100 rounded-xl relative">
 
                 <Grid className="flex-shrink-0 md:block hidden">
-                    <ChatLeft />
+                    <ChatLeft onUserClick={handleUserClick} />
                 </Grid>
 
                 <Grid className='flex-1'>
@@ -75,23 +108,29 @@ export default function ChatUI() {
                                                     </React.Fragment>
                                                 ))}
                                             </Grid>
-                                            <Grid className='me-3 relative'>
-                                                <Badge
-                                                    className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[54px] h-[54px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
-                                                    {/* MS */}
-                                                    <Avatar className='!w-[54px] !h-[54px]' src="/avatar4.png" />
-                                                </Badge>
-                                                <Badge className='w-2 h-2 rounded-full bg-[#ffae1f] absolute right-0 bottom-2 z-10'> </Badge>
-                                            </Grid>
-                                            <Grid>
-                                                <Typography
-                                                    className="text-primarydark1 fontFamilyPlusJakarta  text-sm font-semibold leading-tight mb-[6px]">
-                                                    Andrew Johnson
-                                                </Typography>
-                                                <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none truncate">
-                                                    Away
-                                                </Typography>
-                                            </Grid>
+                                            {selectedUser && (
+                                                <Grid className='flex items-center'>
+                                                    <Grid className='me-3 relative'>
+                                                        <Badge
+                                                            className='rounded-full bg-[#fbf2ef] text-[#FA896B] w-[54px] h-[54px] flex items-center justify-center fontFamilyPlusJakarta text-sm font-semibold leading-tight uppercase'>
+                                                            {selectedUser.namefirstlast && selectedUser.namefirstlast}
+                                                            {selectedUser.userimg && (
+                                                                <Avatar className='!w-[54px] !h-[54px]' src={selectedUser.userimg} />
+                                                            )}
+                                                        </Badge>
+                                                        <Badge className='w-2 h-2 rounded-full absolute right-0 bottom-2 z-10' style={{ backgroundColor: selectedUser.dotcolor }}></Badge>
+                                                    </Grid>
+                                                    <Grid>
+                                                        <Typography
+                                                            className="text-primarydark1 fontFamilyPlusJakarta  text-sm font-semibold leading-tight mb-[6px]">
+                                                            {selectedUser.name}
+                                                        </Typography>
+                                                        <Typography className="text-primarylight2 fontFamilyPlusJakarta text-xs font-normal leading-none">
+                                                            {selectedUser.lastmsg}
+                                                        </Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            )}
                                         </Box>
                                     </Grid>
                                     <Grid item className='flex-shrink-0'>
@@ -126,6 +165,35 @@ export default function ChatUI() {
                         <Grid className='flex h-full'>
                             <Grid className='flex-1'>
                                 <Box className='p-7 scrollbar-thin  scrollbar-track-neutral-200 scrollbar-none overflow-y-scroll h-[698px]'>
+                                    {/* pending  */}
+                                    <Box className="hidden chatleft">
+                                        {chatData.map((user) =>
+                                            user.message.map((msg, index) =>
+                                                msg.type === "sender" ? (
+                                                    <div key={index}>
+                                                        <p className="text-blue-600">{msg.msg}</p>
+                                                    </div>
+                                                ) : null
+                                            )
+                                        )}
+                                    </Box>
+                                    <Box className="hidden chatright">
+                                        {chatData.map((user) =>
+                                            user.message.map((msg, index) =>
+                                                msg.type === "sender" ? (
+                                                    <div key={index}>
+                                                        <p className="text-blue-600">{msg.msg}</p>
+                                                    </div>
+                                                ) : msg.type === "receiver" ? (
+                                                    <div key={index}>
+                                                        <p className="text-green-600">{msg.msg}</p>
+                                                    </div>
+                                                ) : null
+                                            )
+                                        )}
+                                    </Box>
+                                    {/* pending  */}
+
                                     {/* Left */}
                                     <Box className="mb-4">
                                         <Grid className='flex items-center w-full mb-2'>
@@ -403,20 +471,22 @@ export default function ChatUI() {
 
             {['left'].map((anchor) => (
                 <React.Fragment key={anchor}>
-                    <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                        <ChatLeft />
+                    <Drawer anchor={anchor as 'left'} open={state[anchor]} onClose={toggleDrawer(anchor as 'left', false)}>
+                        <ChatLeft onUserClick={handleUserClick} />
                     </Drawer>
                 </React.Fragment>
             ))}
+
             {/* Left mobile */}
             {/* Right mobile */}
             {['right'].map((anchor) => (
                 <React.Fragment key={anchor}>
-                    <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                    <Drawer anchor={anchor as 'right'} open={state[anchor]} onClose={toggleDrawer(anchor as 'right', false)}>
                         <ChatRight />
                     </Drawer>
                 </React.Fragment>
             ))}
+
             {/* Right mobile */}
             <div>
 
